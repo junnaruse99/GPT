@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
-    path("", views.index, name="index"),
-    path('', views.query_view, name='query'),
+    path("", views.index),
+    re_path(r'^message$', views.message, name="message"),
 ]
