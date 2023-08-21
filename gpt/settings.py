@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env.get_value('SECRET_KEY', default='django-insecure-((ut@4ugo)i)ty8#%!-z#dy(q+qvbsy_z&oug^)5qtv+15w%@=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.get_value('ENVIRONMENT', default='PROD')
+DEBUG = env.get_value('ENVIRONMENT', default='DEV') == 'DEV'
 
 ALLOWED_HOSTS = [
     '52.91.226.123'
