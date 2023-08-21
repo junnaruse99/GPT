@@ -70,7 +70,7 @@ def get_completion(prompt, sessionId):
     if sessionId:
         previousMessages = Message.objects.filter(sessionId=sessionId)
         
-    if (len(previousMessages.filter(createdOn__date=current_date_utc)) > RATE_LIMIT):
+    if (sessionId and len(previousMessages.filter(createdOn__date=current_date_utc)) > RATE_LIMIT):
         raise RateLimitExceeded("Rate limit exceeded")
     
     sessionId = sessionId or uuid.uuid4()
